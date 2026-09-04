@@ -1,3 +1,4 @@
+### 1. CREATE NOTE - SUCCESS
 POST http://localhost:8080/api/notes
 Content-Type: application/json
 
@@ -6,6 +7,29 @@ Content-Type: application/json
   "content": "Today I started learning Spring Boot architecture by building BrieflyAI."
 }
 
-###
-
+### 2. GET ALL NOTES - SUCCESS
 GET http://localhost:8080/api/notes
+
+### 3. GET NOTE BY ID - SUCCESS
+GET http://localhost:8080/api/notes/1
+
+### 4. GET NOTE BY ID - NOT FOUND
+GET http://localhost:8080/api/notes/999
+
+### 5. CREATE NOTE - VALIDATION ERROR
+POST http://localhost:8080/api/notes
+Content-Type: application/json
+
+{
+  "title": "",
+  "content": ""
+}
+
+### 6. CREATE NOTE - TITLE TOO LONG
+POST http://localhost:8080/api/notes
+Content-Type: application/json
+
+{
+  "title": "This title is intentionally made very long so that it can be used to verify that our @Size validation works correctly when the title exceeds the allowed maximum length configured in the request DTO. This should fail validation.",
+  "content": "Testing title length validation."
+}

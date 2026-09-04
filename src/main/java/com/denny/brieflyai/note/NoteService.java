@@ -21,7 +21,15 @@ public class NoteService {
         return NoteMapper.toResponse(savedNote);
     }
 
-    public List<Note> getAllNotes() {
-        return noteRepository.findAll();
+    public List<NoteResponse> getAllNotes() {
+        List<Note> noteList = noteRepository.findAll();
+        return NoteMapper.toResponse(noteList);
+    }
+
+    public NoteResponse getNoteById(Long id) {
+        Note note = noteRepository.findById(id)
+                .orElseThrow(() -> new NoteNotFoundException(id));
+
+        return NoteMapper.toResponse(note);
     }
 }

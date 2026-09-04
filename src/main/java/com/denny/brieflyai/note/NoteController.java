@@ -1,6 +1,8 @@
 package com.denny.brieflyai.note;
 
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,12 +18,23 @@ public class NoteController {
     }
 
     @PostMapping
-    public NoteResponse createNote(@Valid @RequestBody CreateNoteRequest request) {
-        return noteService.createNote(request);
+    public ResponseEntity<NoteResponse> createNote(
+            @Valid @RequestBody CreateNoteRequest request
+    ) {
+        NoteResponse response = noteService.createNote(request);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(response);
     }
 
     @GetMapping
-    public List<Note> getAllNotes() {
+    public List<NoteResponse> getAllNotes() {
         return noteService.getAllNotes();
+    }
+
+    @GetMapping("/{id}")
+    public NoteResponse getNoteById(@PathVariable Long id) {
+        return noteService.getNoteById(id);
     }
 }
