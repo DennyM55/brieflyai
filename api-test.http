@@ -1,0 +1,11 @@
+POST http://localhost:8080/api/notes
+Content-Type: application/json
+
+{
+  "title": "Note 2 details: Kafka",
+  "content": "Today I started learning Spring Boot architecture by building BrieflyAI."
+}
+
+###
+
+GET http://localhost:8080/api/notes
