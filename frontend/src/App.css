@@ -1,0 +1,178 @@
+.app {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 64px 0 80px;
+}
+
+.hero {
+  margin-bottom: 38px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #7c3aed;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #111827;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  letter-spacing: -0.06em;
+}
+
+.hero p:last-child {
+  margin: 12px 0 0;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.composer,
+.note-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
+}
+
+.composer {
+  padding: 28px;
+}
+
+h2 {
+  margin: 0 0 22px;
+  color: #111827;
+  font-size: 1.25rem;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  color: #374151;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: #111827;
+  font: inherit;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px #ede9fe;
+}
+
+button {
+  width: fit-content;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  background: #6d28d9;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+button:hover {
+  background: #5b21b6;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.error {
+  margin-bottom: 0;
+  color: #b91c1c;
+}
+
+.notes-section {
+  margin-top: 48px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-heading h2 {
+  margin: 0;
+}
+
+.refresh-button {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.refresh-button:hover {
+  background: #d1d5db;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.note-card {
+  padding: 22px;
+}
+
+.note-date {
+  margin: 0 0 14px;
+  color: #9ca3af;
+  font-size: 0.78rem;
+}
+
+.note-card h3 {
+  margin: 0 0 10px;
+  color: #111827;
+}
+
+.note-content {
+  color: #4b5563;
+  line-height: 1.55;
+}
+
+.summary {
+  margin-top: 20px;
+  border-left: 3px solid #8b5cf6;
+  padding-left: 12px;
+}
+
+.summary span {
+  color: #7c3aed;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.summary p {
+  margin: 7px 0 0;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.empty-state {
+  margin-top: 20px;
+  color: #6b7280;
+}
