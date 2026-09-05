@@ -1,4 +1,4 @@
-package com.denny.brieflyai.note.exception;
+package com.denny.brieflyai.exception;
 
 import java.time.LocalDateTime;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.denny.brieflyai.note;
+package com.denny.brieflyai.exception;
 
 public class NoteNotFoundException extends RuntimeException {
     public NoteNotFoundException(Long id) {

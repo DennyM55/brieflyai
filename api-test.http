@@ -33,3 +33,12 @@ Content-Type: application/json
   "title": "This title is intentionally made very long so that it can be used to verify that our @Size validation works correctly when the title exceeds the allowed maximum length configured in the request DTO. This should fail validation.",
   "content": "Testing title length validation."
 }
+
+### 7. CREATE NOTE + AI SUMMARY - SUCCESS
+POST http://localhost:8080/api/notes
+Content-Type: application/json
+
+{
+  "title": "Kafka Architecture",
+  "content": "Apache Kafka is an event streaming platform used for asynchronous communication between applications. Producers publish messages to topics. Topics are divided into partitions for scalability. Consumers read messages from those partitions. Consumer groups allow multiple consumers to share the processing workload. Kafka stores messages for a configured retention period, which allows consumers to replay events when required."
+}

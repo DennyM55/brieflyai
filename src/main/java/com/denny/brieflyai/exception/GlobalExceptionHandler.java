@@ -1,6 +1,5 @@
-package com.denny.brieflyai.note.exception;
+package com.denny.brieflyai.exception;
 
-import com.denny.brieflyai.note.NoteNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
