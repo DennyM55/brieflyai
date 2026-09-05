@@ -1,18 +1,44 @@
 services:
   postgres:
-    image: postgres:17
-    container_name: brieflyai-postgres
-
+    image: postgres:17-alpine
     environment:
       POSTGRES_DB: brieflyai
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-
     ports:
-      - "5432:5432"
-
+      - "5433:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d brieflyai"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/brieflyai
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-disabled}
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
 
 volumes:
-  postgres_data:
+  postgres-data:
